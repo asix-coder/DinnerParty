@@ -24,8 +24,10 @@ namespace DinnerParty
             DisplayDinnerPartyCost();
         }
 
-        private void DispayDinnerPartyCost()
+        private void DisplayDinnerPartyCost()
+
         {
+            dinnerParty.CalculateCostOfDecorations(fancyBox.Checked);
             decimal Cost = dinnerParty.CalculateCost(healthyBox.Checked);
             costLabel.Text = Cost.ToString("c");
         }
@@ -37,13 +39,13 @@ namespace DinnerParty
 
         private void fancyBox_CheckedChanged(object sender, EventArgs e)
         {
-            dinnerParty.CalculateCostOfDecorations();
+            dinnerParty.CalculateCostOfDecorations(fancyBox.Checked);
             DisplayDinnerPartyCost();
         }
 
         private void healthyBox_CheckedChanged(object sender, EventArgs e)
         {
-            dinnerParty.SetHealthyOption();
+            dinnerParty.SetHealthyOption(healthyBox.Checked);
             DisplayDinnerPartyCost();
         }
     }

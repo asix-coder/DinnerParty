@@ -10,38 +10,38 @@ namespace DinnerParty
     {
         public const int CostOfFoodPerPerson = 25;
 
-        int NumberOfPeople;
+        public int NumberOfPeople;
         decimal CostOfBeveragesPerPerson;
-        decimal CostOfDecorations;
+        decimal CostOfDecorations = 0;
 
-        void SetHealthyOption(bool healthyOption)
+        public void SetHealthyOption(bool healthyOption)
         {
             if (healthyOption)
             {
-                CostOfBeveragesPerPerson = NumberOfPeople * 5.0M;
+                CostOfBeveragesPerPerson = 5.0M;
             }
             else
             {
-                CostOfBeveragesPerPerson = NumberOfPeople * 20.0M;
+                CostOfBeveragesPerPerson = 20.0M;
             }
         }
-        void CalculateCosOfDecrations(bool decorations)
+        public void CalculateCostOfDecorations(bool decorations)
         {
             if (decorations)
             {
-                CostOfDecorations = NumberOfPeople * 15.0M + 50.0M;
+                CostOfDecorations = (NumberOfPeople * 15.0M) + 50.0M;
             }
             else
             {
-                CostOfDecorations = NumberOfPeople * 7.5M + 30.0M;
+                CostOfDecorations = (NumberOfPeople * 7.5M) + 30.0M;
             }
         }
-        decimal CalculateCost(bool healthyOption)
+        public decimal CalculateCost(bool healthyOption)
         {
-            decimal totalCost = (CostOfFoodPerPerson + CostOfBeveragesPerPerson + CostOfDecorations) * NumberOfPeople;
+            decimal totalCost = (CostOfFoodPerPerson + CostOfBeveragesPerPerson) * NumberOfPeople + CostOfDecorations;
             if (healthyOption)
             {
-               return totalCost = totalCost * 0.95M;
+               return totalCost * 0.95M;
             }
             else
             {
